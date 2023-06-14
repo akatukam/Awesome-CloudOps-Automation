@@ -6,8 +6,8 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - name: Pytype Python Checker
-        uses: theahura/pytype-action@83188a10fef4b23f61ece9aef0b3950d7d893bed
-        with:
-                   args: -d import-error
-    
+    - uses: actions/checkout@v3
+    - name: pytypes checker
+      uses: theahura/pytypes-action@main
+      with:
+        args: --disable import-error --generate-config pytype.toml
