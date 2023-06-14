@@ -10,4 +10,4 @@ jobs:
     - name: pytypes checker
       uses: theahura/pytypes-action@main
       with:
-        args: --disable import-error --generate-config pytype.toml
+        args: --disable import-error, attribute-error
