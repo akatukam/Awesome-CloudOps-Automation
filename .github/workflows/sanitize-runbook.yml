@@ -36,5 +36,7 @@ jobs:
 
       - name: Pytype Python Checker
         uses: actions/checkout@v3
+      - name: Run skip_file.py
+        run: python skip_file.py
       - name: pytypes checker
         uses: theahura/pytypes-action@main
