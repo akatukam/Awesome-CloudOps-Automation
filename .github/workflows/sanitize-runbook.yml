@@ -1,11 +1,40 @@
-name: pytype check
+name: Sanitize Runbook
 on:
   pull_request:
     types: [ opened, reopened, edited, ready_for_review ]
+  push:
+
+env:
+  PR_NUMBER: ${{ github.event.number }}
+
 jobs:
-  check:
+  sanitize-runbooks:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+
     steps:
-    - uses: actions/checkout@v3
-    - name: pytypes checker
-      uses: theahura/pytypes-action@main
+      - uses: actions/checkout@v3
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d-%s')"
+
+      - name: Install system dependencies
+        run: |
+          pip install shyaml nbformat URLExtract
+
+      - name: All Runbooks
+        id: files
+        run: |
+          echo "all_runbook_files=$(find . -mindepth 2 -maxdepth 2 -name \*.ipynb | tr '\n' ' ')" >> $GITHUB_OUTPUT
+
+      - name: Run Sanitize
+        id: sanity
+        run: |
+          echo "Running sanitize script on ${{ steps.files.outputs.all_runbooks_files }}"
+          /usr/bin/env python ./sanitize.py -v ${{ steps.files.outputs.all_runbook_files }}
+
+      - name: Pytype Python Checker
+        uses: actions/checkout@v3
+      - name: pytypes checker
+        uses: theahura/pytypes-action@main
