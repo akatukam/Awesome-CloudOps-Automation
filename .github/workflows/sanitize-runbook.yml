@@ -9,5 +9,3 @@ jobs:
     - uses: actions/checkout@v3
     - name: pytypes checker
       uses: theahura/pytypes-action@main
-      with:
-        args: --pickle-output --use-pickled-files --precompiled-builtins
