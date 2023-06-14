@@ -10,4 +10,4 @@ jobs:
     - name: pytypes checker
       uses: theahura/pytypes-action@main
       with:
-        args: --disable import-error, attribute-error
+        args: --pickle-output --use-pickled-files --precompiled-builtins
