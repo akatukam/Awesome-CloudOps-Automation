@@ -17,7 +17,6 @@ folder_path = git_top_dir()
 for root, dirs, files in os.walk(folder_path):
     for file in files:
         if file == '__init__.py':
-            print("yes")
             file_path = os.path.join(root, file)
             print(file_path)
             with open(file_path, 'r+') as f:
