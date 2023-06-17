@@ -19,6 +19,7 @@ for root, dirs, files in os.walk(folder_path):
         if file == '__init__.py':
             print("yes")
             file_path = os.path.join(root, file)
+            print(file_path)
             with open(file_path, 'r+') as f:
                 content = f.read()
                 if '# pytype: skip-file' not in content:
