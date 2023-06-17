@@ -34,9 +34,12 @@ jobs:
           echo "Running sanitize script on ${{ steps.files.outputs.all_runbooks_files }}"
           /usr/bin/env python ./sanitize.py -v ${{ steps.files.outputs.all_runbook_files }}
 
-      - name: Pytype Python Checker
+      - name: Checkout Repository
         uses: actions/checkout@v3
+        
       - name: Run skip_file.py
-        run: python skip_file.py
-      - name: pytypes checker
+        run: |
+          python skip_file.py
+        
+      - name: Pytype Python Checker
         uses: theahura/pytypes-action@main
