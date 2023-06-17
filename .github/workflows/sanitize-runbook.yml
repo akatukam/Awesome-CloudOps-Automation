@@ -7,6 +7,9 @@ on:
 env:
   PR_NUMBER: ${{ github.event.number }}
 
+permissions:
+  contents: read+write
+
 jobs:
   sanitize-runbooks:
     runs-on: ubuntu-latest
@@ -37,9 +40,14 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
         
+      - name: Set up Python 3.x
+        uses: actions/setup-python@75f3110429a8c05be0e1bf360334e4cced2b63fa # v2.3.3
+        with:
+          python-version: '3.9'
+          
       - name: Run skip_file.py
         run: |
-          python skip_file.py
+          /usr/bin/env python ./skip_file.py       
         
       - name: Pytype Python Checker
         uses: theahura/pytypes-action@main
