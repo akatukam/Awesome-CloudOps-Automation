@@ -1,4 +1,5 @@
 import os
+from subprocess import run
 
 def git_top_dir() -> str:
     """git_top_dir returns the output of git rev-parse --show-toplevel 
