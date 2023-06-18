@@ -40,13 +40,15 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
         
+      - name: Set up Python 3.x
+        uses: actions/setup-python@75f3110429a8c05be0e1bf360334e4cced2b63fa # v2.3.3
+        with:
+          python-version: '3.9'
+          
       - name: Pytype Python Checker
         uses: theahura/pytypes-action@main
         with:
           args: --config pytype.toml
-      - uses: actions/setup-python@v4 
-        with:
-          python-version: 'pypy3.9'
         
       - name: Region Test
         run: |
