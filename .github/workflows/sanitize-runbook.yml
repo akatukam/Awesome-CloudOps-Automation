@@ -44,9 +44,6 @@ jobs:
       - uses: theahura/pytypes-action@main
         with:
           args: --config pytype.toml
-      - uses: actions/setup-python@v4
-        with:
-          python-version: '3.9' 
         
       - name: Region Test
         run: |
