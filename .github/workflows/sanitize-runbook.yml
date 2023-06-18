@@ -8,7 +8,7 @@ env:
   PR_NUMBER: ${{ github.event.number }}
 
 permissions:
-  contents: read+write
+  contents: read|write
 
 jobs:
   sanitize-runbooks:
