@@ -14,6 +14,7 @@ def git_top_dir() -> str:
     top_dir = top_dir.decode('utf-8')
     return top_dir
 
+# Get the top-level directory of the Git repository
 folder_path = git_top_dir()
 
 def check_method_signature(module, method_name):
@@ -59,7 +60,6 @@ if __name__ == '__main__':
         for file in files:
             if file.endswith('.py'):
                 file_path = os.path.join(root, file)
-                print(f"File path: {file_path}")
                 module_name = os.path.splitext(file)[0]
                 try:
                     module = importlib.import_module(module_name)
