@@ -2,6 +2,7 @@ import inspect
 import re
 import os
 import importlib
+import sys
 from subprocess import run
 
 def git_top_dir() -> str:
