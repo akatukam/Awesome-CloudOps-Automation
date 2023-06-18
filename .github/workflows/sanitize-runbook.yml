@@ -56,7 +56,7 @@ jobs:
           git config --global user.name akatukam
           git config --global user.email anuja.katukam@gmail.com
 
-          git add -A
+          git add .
           git commit -m "commit message"
           git push
         
