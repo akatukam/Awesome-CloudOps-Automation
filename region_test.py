@@ -57,7 +57,13 @@ def check_module_methods(module):
         print(f"Assertion failed: Module: {module.__name__}")
         assert has_region
 
-if __name__ == '__main__':    
+if __name__ == '__main__':   
+    try:
+        module = importlib.import_module(datadog_search_methods.datadog_search_methods)
+        check_module_methods(module)
+        print(f"Checked module: {module_name}")
+    except Exception as e:
+        print(f"Error importing module {module_name}: {str(e)}")
     for root, dirs, files in os.walk(folder_path):
         for file in files:
             if file.endswith('.py'):
