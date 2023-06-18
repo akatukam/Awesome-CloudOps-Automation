@@ -58,16 +58,14 @@ def check_module_methods(module):
         assert has_region
 
 if __name__ == '__main__':   
-
-    py_files = glob.glob(os.path.join(folder_path, '*.py'))
-    for file_path in py_files:
-        module_name = os.path.splitext(os.path.basename(file_path))[0]
-        try:
-            module = importlib.import_module(module_name)
-            print(f"ssSuccessfully imported module: {module_name}")
-        except Exception as e:
-            print(f"nahError importing module {module_name}: {str(e)}")
     
+    try:
+        module = importlib.import_module(Datadog/legos/datadog_search_monitors/datadog_search_monitors)
+        check_module_methods(module)
+        print(f"testy module: {module_name}")
+    except Exception as e:
+        print(f"testy Error importing module {module_name}: {str(e)}")
+        
     for root, dirs, files in os.walk(folder_path):
         for file in files:
             if file.endswith('.py'):
