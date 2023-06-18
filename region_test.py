@@ -62,6 +62,7 @@ if __name__ == '__main__':
                 file_path = os.path.join(root, file)
                 print(f"File path: {file_path}")
                 module_name = os.path.splitext(file)[0]
+                print(f"Module name: {module_name}")
                 try:
                     module = importlib.import_module(module_name)
                     check_module_methods(module)
