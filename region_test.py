@@ -1,7 +1,21 @@
 import inspect
 import re
 import os
+import importlib
 from subprocess import run
+
+def git_top_dir() -> str:
+    """git_top_dir returns the output of git rev-parse --show-toplevel 
+
+    :rtype: string, the output of the git rev-parse --show-toplevel command
+    """
+    run_output = run(["git", "rev-parse", "--show-toplevel"], capture_output=True)
+    top_dir = run_output.stdout.strip()
+    top_dir = top_dir.decode('utf-8')
+    return top_dir
+
+# Get the top-level directory of the Git repository
+folder_path = git_top_dir()
 
 def check_method_signature(module, method_name):
     """ Accepts a module and a method/function from that module and
@@ -38,3 +52,17 @@ def check_module_methods(module):
             if not check_method_signature(module, name):
                has_region = False
     assert has_region
+    if not has_region:
+        print(f"Assertion failed: Module: {module.__name__}")
+    
+for root, dirs, files in os.walk(folder_path):
+    for file in files:
+        if file.endswith('.py'):
+            file_path = os.path.join(root, file)
+            module_name = os.path.splitext(file)[0]
+            try:
+                module = importlib.import_module(module_name)
+                check_module_methods(module)
+                print(f"Checked module: {module_name}")
+            except Exception as e:
+                print(f"Error importing module {module_name}: {str(e)}")
