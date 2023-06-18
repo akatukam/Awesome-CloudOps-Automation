@@ -14,9 +14,6 @@ def git_top_dir() -> str:
     top_dir = top_dir.decode('utf-8')
     return top_dir
 
-# Get the top-level directory of the Git repository
-folder_path = git_top_dir()
-
 def check_method_signature(module, method_name):
     """ Accepts a module and a method/function from that module and
         returns true if the method signature either doesn't contain 
@@ -56,13 +53,14 @@ def check_module_methods(module):
         assert has_region
 
 if __name__ == '__main__':    
+    folder_path = git_top_dir()
+    sys.path.append(folder_path)
     for root, dirs, files in os.walk(folder_path):
         for file in files:
             if file.endswith('.py'):
                 file_path = os.path.join(root, file)
                 print(f"File path: {file_path}")
                 module_name = os.path.splitext(file)[0]
-                print(f"Module name: {module_name}")
                 try:
                     module = importlib.import_module(module_name)
                     check_module_methods(module)
