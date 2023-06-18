@@ -63,3 +63,7 @@ jobs:
         
       - name: Pytype Python Checker
         uses: theahura/pytypes-action@main
+        
+      - name: Region Test
+        run: |
+          /usr/bin/env python ./region_test.py 
