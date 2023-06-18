@@ -31,7 +31,7 @@ def check_method_signature(module, method_name):
     """
     method = getattr(module, method_name, None)
     if method is not None:
-        (source_lines, _) = inspect.getsourcelines(method)
+        (source_lines, _) = inspect.getsource(method).splitlines()
         # partial matches with "egion" to see if any riff is present
         if re.search(r"egion", source_lines[0]):
             # checks if that riff is "region" exactly
@@ -42,6 +42,20 @@ def check_method_signature(module, method_name):
     else:
         return True
 
+"""
+    method = getattr(module, method_name, None)
+    if method is not None:
+        (source_lines, _) = inspect.getsourcelines(method)
+        # partial matches with "egion" to see if any riff is present
+        if re.search(r"egion", source_lines[0]):
+            # checks if that riff is "region" exactly
+            pattern = r"def {}\(.*\bregion(\s|:|\)).*:".format(re.escape(method_name))
+            return bool(re.findall(pattern, source_lines[0]))
+        else:
+            return True
+    else:
+        return True
+"""
 def check_module_methods(module):
     """ Accepts a module and calls check_method_signature on each 
         function/method present in it.
