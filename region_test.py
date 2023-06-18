@@ -62,6 +62,9 @@ if __name__ == '__main__':
     for entry in entries:
         print(entry)
 
+    sys.path.append('/home/runner/work/Awesome-CloudOps-Automation/Awesome-CloudOps-Automation/Datadog/legos/datadog_search_monitors')
+    import datadog_search_monitors
+
     """     
         module = SourceFileLoader("datadog_search_monitors","home/runner/work/Awesome-CloudOps-Automation/Awesome-CloudOps-Automation/Datadog/legos/datadog_search_monitors/datadog_search_monitors.py").load_module()
         check_module_methods(module)
