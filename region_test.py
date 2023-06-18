@@ -60,7 +60,7 @@ def check_module_methods(module):
 if __name__ == '__main__':   
 
     try:
-        module = importlib.util.spec_from_file_location("datadog_search_monitors","/home/runner/work/Awesome-CloudOps-Automation/Awesome-CloudOps-Automation/Datadog/legos/datadog_search_monitors/datadog_search_monitors.py")
+        module = SourceFileLoader("datadog_search_monitors","home/runner/work/Awesome-CloudOps-Automation/Awesome-CloudOps-Automation/Datadog/legos/datadog_search_monitors/datadog_search_monitors.py").load_module()
         check_module_methods(module)
         print(f"TESTChecked module")
     except Exception as e:
