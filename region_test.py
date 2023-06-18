@@ -38,13 +38,13 @@ def check_method_signature(module, method_name):
     
     for name, methody in methods:
         print(f"Methody name: {name}")
-        
+"""        
     method = getattr(module, method_name, None)
     print("method:")
     print(type(method))
     method_name = method.__name__
     print(f"Method name: {method_name}")
-
+"""
 """
     method = getattr(module, method_name, None)
     if method is not None:
