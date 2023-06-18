@@ -60,7 +60,6 @@ if __name__ == '__main__':
         for file in files:
             if file.endswith('.py'):
                 file_path = os.path.join(root, file)
-                print(file_path)
                 module_name = os.path.splitext(file)[0]
                 try:
                     module = importlib.import_module(module_name)
