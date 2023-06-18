@@ -58,6 +58,7 @@ def check_module_methods(module):
         assert has_region
 
 if __name__ == '__main__':   
+    """
     entries = os.listdir('/home/runner/work/Awesome-CloudOps-Automation/Awesome-CloudOps-Automation/Datadog/legos/datadog_search_monitors')
     for entry in entries:
         print(entry)
@@ -67,13 +68,6 @@ if __name__ == '__main__':
     print(f"TESTChecked module")
     
     """     
-        module = SourceFileLoader("datadog_search_monitors","home/runner/work/Awesome-CloudOps-Automation/Awesome-CloudOps-Automation/Datadog/legos/datadog_search_monitors/datadog_search_monitors.py").load_module()
-        check_module_methods(module)
-        print(f"TESTChecked module")
-    except Exception as e:
-        print(f"TESTError importing module")
-    """
-    """
     for root, dirs, files in os.walk(folder_path):
         for file in files:
             if file.endswith('.py'):
@@ -81,10 +75,9 @@ if __name__ == '__main__':
                 print(f"File path: {file_path}")
                 module_name = os.path.splitext(file)[0]
                 try:
-                    module = importlib.import_module(module_name)
+                    module = SourceFileLoader(module_name,file_path).load_module()
                     check_module_methods(module)
                     print(f"Checked module: {module_name}")
                 except Exception as e:
                     print(f"Error importing module {module_name}: {str(e)}")
-    """
     assert True
