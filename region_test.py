@@ -65,7 +65,7 @@ if __name__ == '__main__':
         print(f"TESTChecked module")
     except Exception as e:
         print(f"TESTError importing module")
-    """"
+    """
     for root, dirs, files in os.walk(folder_path):
         for file in files:
             if file.endswith('.py'):
@@ -78,5 +78,5 @@ if __name__ == '__main__':
                     print(f"Checked module: {module_name}")
                 except Exception as e:
                     print(f"Error importing module {module_name}: {str(e)}")
-    """"
+    """
     assert True
