@@ -59,7 +59,7 @@ def check_module_methods(module):
 
 if __name__ == '__main__':   
     entries = os.listdir('/home/runner/work/Awesome-CloudOps-Automation/Awesome-CloudOps-Automation/Datadog/legos/datadog_search_monitors')
-    for entry in entries
+    for entry in entries:
         print(entry)
 
     """     
