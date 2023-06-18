@@ -60,11 +60,15 @@ def check_module_methods(module):
 if __name__ == '__main__':   
 
     try:
+        sys.path.append("home/runner/work/Awesome-CloudOps-Automation/Awesome-CloudOps-Automation/Datadog/legos/datadog_search_monitors")
+        import datadog_search_monitors
+   """     
         module = SourceFileLoader("datadog_search_monitors","home/runner/work/Awesome-CloudOps-Automation/Awesome-CloudOps-Automation/Datadog/legos/datadog_search_monitors/datadog_search_monitors.py").load_module()
         check_module_methods(module)
         print(f"TESTChecked module")
     except Exception as e:
         print(f"TESTError importing module")
+    """
     """
     for root, dirs, files in os.walk(folder_path):
         for file in files:
