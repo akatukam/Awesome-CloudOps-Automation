@@ -44,14 +44,14 @@ jobs:
           
       - name: Checkout Repository
         uses: actions/checkout@v3
+        
+      - name: Display Python version
+        run: python -c "import sys; print(sys.version)"
           
       - name: Pytype Python Checker
         uses: theahura/pytypes-action@v1.6
         with:
           args: --config pytype.toml
-        
-      - name: Display Python version
-        run: python -c "import sys; print(sys.version)"
         
       - name: Region Test
         run: |
