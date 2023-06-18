@@ -16,6 +16,7 @@ def git_top_dir() -> str:
 
 # Get the top-level directory of the Git repository
 folder_path = git_top_dir()
+sys.path.append(folder_path)
 
 def check_method_signature(module, method_name):
     """ Accepts a module and a method/function from that module and
