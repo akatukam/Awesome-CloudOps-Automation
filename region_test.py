@@ -59,7 +59,7 @@ def check_module_methods(module):
 
 if __name__ == '__main__':   
     try:
-        module = importlib.import_module(datadog_search_methods.datadog_search_methods)
+        module = importlib.import_module(datadog_search_methods/datadog_search_methods)
         check_module_methods(module)
         print(f"Checked module: {module_name}")
     except Exception as e:
