@@ -58,7 +58,7 @@ def check_module_methods(module):
         assert has_region
 
 if __name__ == '__main__':   
-    entries = os.listdir('/home/runner/work/Awesome-CloudOps-Automation/Awesome-CloudOps-Automation/Datadog/legos/datadog_search_monitors)
+    entries = os.listdir('/home/runner/work/Awesome-CloudOps-Automation/Awesome-CloudOps-Automation/Datadog/legos/datadog_search_monitors')
     for entry in entries
         print(entry)
 
