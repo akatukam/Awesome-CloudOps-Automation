@@ -37,6 +37,9 @@ jobs:
           echo "Running sanitize script on ${{ steps.files.outputs.all_runbooks_files }}"
           /usr/bin/env python ./sanitize.py -v ${{ steps.files.outputs.all_runbook_files }}
           
+      - name: Run Region Test
+        run: |
+          /usr/bin/env python ./region_test.py     
 
       - name: Set up Python 3.x
         uses: actions/setup-python@75f3110429a8c05be0e1bf360334e4cced2b63fa # v2.3.3
