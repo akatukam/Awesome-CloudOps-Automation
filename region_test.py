@@ -54,16 +54,17 @@ def check_module_methods(module):
     if not has_region:
         print(f"Assertion failed: Module: {module.__name__}")
         assert has_region
-    
-for root, dirs, files in os.walk(folder_path):
-    for file in files:
-        if file.endswith('.py'):
-            file_path = os.path.join(root, file)
-            module_name = os.path.splitext(file)[0]
-            try:
-                module = importlib.import_module(module_name)
-                check_module_methods(module)
-                print(f"Checked module: {module_name}")
-            except Exception as e:
-                print(f"Error importing module {module_name}: {str(e)}")
-assert True
+
+if __name__ == '__main__':    
+    for root, dirs, files in os.walk(folder_path):
+        for file in files:
+            if file.endswith('.py'):
+                file_path = os.path.join(root, file)
+                module_name = os.path.splitext(file)[0]
+                try:
+                    module = importlib.import_module(module_name)
+                    check_module_methods(module)
+                    print(f"Checked module: {module_name}")
+                except Exception as e:
+                    print(f"Error importing module {module_name}: {str(e)}")
+    assert True
