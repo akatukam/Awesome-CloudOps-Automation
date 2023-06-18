@@ -4,6 +4,7 @@ import os
 import importlib
 import sys
 from subprocess import run
+import glob
 
 def git_top_dir() -> str:
     """git_top_dir returns the output of git rev-parse --show-toplevel 
@@ -17,7 +18,6 @@ def git_top_dir() -> str:
 
 # Get the top-level directory of the Git repository
 folder_path = git_top_dir()
-sys.path.append(folder_path)
 
 def check_method_signature(module, method_name):
     """ Accepts a module and a method/function from that module and
@@ -58,12 +58,16 @@ def check_module_methods(module):
         assert has_region
 
 if __name__ == '__main__':   
-    try:
-        module = importlib.import_module(datadog_search_methods/datadog_search_methods)
-        check_module_methods(module)
-        print(f"Checked module: {module_name}")
-    except Exception as e:
-        print(f"Error importing module {module_name}: {str(e)}")
+
+    py_files = glob.glob(os.path.join(folder_path, '*.py'))
+    for file_path in py_files:
+        module_name = os.path.splitext(os.path.basename(file_path))[0]
+        try:
+            module = importlib.import_module(module_name)
+            print(f"ssSuccessfully imported module: {module_name}")
+        except Exception as e:
+            print(f"nahError importing module {module_name}: {str(e)}")
+    
     for root, dirs, files in os.walk(folder_path):
         for file in files:
             if file.endswith('.py'):
