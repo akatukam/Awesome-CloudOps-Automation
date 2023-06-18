@@ -30,17 +30,8 @@ def check_method_signature(module, method_name):
         :param method_name: Name of the method to check.
     """
     method = getattr(module, method_name, None)
-    if method is not None:
-        (source_lines, _) = inspect.getsource(method).splitlines()
-        # partial matches with "egion" to see if any riff is present
-        if re.search(r"egion", source_lines[0]):
-            # checks if that riff is "region" exactly
-            pattern = r"def {}\(.*\bregion(\s|:|\)).*:".format(re.escape(method_name))
-            return bool(re.findall(pattern, source_lines[0]))
-        else:
-            return True
-    else:
-        return True
+    method_name = method.__name__
+    print(f"Method name: {method_name}")
 
 """
     method = getattr(module, method_name, None)
