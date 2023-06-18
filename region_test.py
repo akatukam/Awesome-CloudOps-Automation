@@ -75,7 +75,7 @@ if __name__ == '__main__':
                 print(f"File path: {file_path}")
                 module_name = os.path.splitext(file)[0]
                 try:
-                    module = SourceFileLoader(module_name,file_path).load_module()
+                    module = importlib.util.spec_from_file_location(module_name,file_path)
                     check_module_methods(module)
                     print(f"Checked module: {module_name}")
                 except Exception as e:
