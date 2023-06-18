@@ -36,5 +36,4 @@ if __name__ == '__main__':
                     f.seek(0, 0)
                     modified_content = f.read()
                     print(f"Modified content: {modified_content}")
-
-print("Adding skip-file was successful")
+    print("Adding skip-file was successful")
