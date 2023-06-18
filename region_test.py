@@ -63,7 +63,9 @@ if __name__ == '__main__':
         print(entry)
 
     module = importlib.util.spec_from_file_location("datadog_search_monitors","/home/runner/work/Awesome-CloudOps-Automation/Awesome-CloudOps-Automation/Datadog/legos/datadog_search_monitors/datadog_search_monitors.py")
-
+    check_module_methods(module)
+    print(f"TESTChecked module")
+    
     """     
         module = SourceFileLoader("datadog_search_monitors","home/runner/work/Awesome-CloudOps-Automation/Awesome-CloudOps-Automation/Datadog/legos/datadog_search_monitors/datadog_search_monitors.py").load_module()
         check_module_methods(module)
