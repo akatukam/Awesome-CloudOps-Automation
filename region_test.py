@@ -31,6 +31,8 @@ def check_method_signature(module, method_name):
     """
     print("module:")
     print(type(module))
+    module_name = module.name
+    print(f"Module name: {module_name}")
     method = getattr(module, method_name, None)
     print("method:")
     print(type(method))
