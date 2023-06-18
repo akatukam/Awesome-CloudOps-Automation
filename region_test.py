@@ -51,9 +51,9 @@ def check_module_methods(module):
         if inspect.isfunction(member) or inspect.ismethod(member):
             if not check_method_signature(module, name):
                has_region = False
-    assert has_region
     if not has_region:
         print(f"Assertion failed: Module: {module.__name__}")
+        assert has_region
     
 for root, dirs, files in os.walk(folder_path):
     for file in files:
@@ -66,3 +66,4 @@ for root, dirs, files in os.walk(folder_path):
                 print(f"Checked module: {module_name}")
             except Exception as e:
                 print(f"Error importing module {module_name}: {str(e)}")
+assert True
