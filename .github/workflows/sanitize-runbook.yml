@@ -52,6 +52,11 @@ jobs:
       - name: Pytype Python Checker
         uses: theahura/pytypes-action@main
         
-      - name: Region Test
+      - name: Commit and push changes
         run: |
-          /usr/bin/env python ./region_test.py  
+          git config --global user.name akatukam
+          git config --global user.email anuja.katukam@gmail.com
+
+          git add -A
+          git commit -m "commit message"
+          git push
