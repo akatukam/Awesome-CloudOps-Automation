@@ -29,7 +29,11 @@ def check_method_signature(module, method_name):
         :type method_name: string
         :param method_name: Name of the method to check.
     """
+    print("module:")
+    print(type(module))
     method = getattr(module, method_name, None)
+    print("method:")
+    print(type(method))
     method_name = method.__name__
     print(f"Method name: {method_name}")
 
