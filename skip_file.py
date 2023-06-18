@@ -31,6 +31,7 @@ for root, dirs, files in os.walk(folder_path):
                 else:
                     print("Skip-file already exists")
 
+            with open(file_path, 'r+') as f:    
                 f.seek(0, 0)
                 modified_content = f.read()
                 print(f"Modified content: {modified_content}")
