@@ -39,6 +39,10 @@ jobs:
 
       - name: Checkout Repository
         uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.9' 
+      - run: python my_script.py
         
       - name: Pytype Python Checker
         uses: theahura/pytypes-action@main
