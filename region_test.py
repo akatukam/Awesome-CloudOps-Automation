@@ -41,6 +41,7 @@ def check_module_methods(module):
     return has_region
 
 if __name__ == '__main__':   
+    current_file = os.path.abspath(__file__)
     for root, dirs, files in os.walk(folder_path):
         for file in files:
             if file.endswith('.py') and os.path.abspath(file) != current_file:
