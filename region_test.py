@@ -43,7 +43,7 @@ def check_module_methods(module):
 if __name__ == '__main__':   
     for root, dirs, files in os.walk(folder_path):
         for file in files:
-            if file.endswith('.py'):
+            if file.endswith('.py') and os.path.abspath(file) != current_file::
                 file_path = os.path.join(root, file)
                 module_name = os.path.splitext(file)[0]
                 try:
@@ -51,4 +51,4 @@ if __name__ == '__main__':
                     if not check_module_methods(module):
                         print(f"Error in module {file_path}")
                 except Exception as e:
-                    print(f"Error importing module {module_name}: {str(e)}")
+                    print(f"Error importing module {file_path}: {str(e)}")
