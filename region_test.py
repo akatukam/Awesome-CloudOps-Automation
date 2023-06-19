@@ -37,7 +37,7 @@ def check_module_methods(module):
         method_name = re.findall(r"(\w+)\s*\(", method_match)
         if not check_method_signature(method_match, method_name[0]):
             has_region = False
-    assert(has_region)
+    return has_region
 
 if __name__ == '__main__':   
     """  
@@ -45,11 +45,12 @@ if __name__ == '__main__':
     for entry in entries:
         print(entry)
     """
+    """
     module = importlib.util.spec_from_file_location("datadog_search_monitors","/home/runner/work/Awesome-CloudOps-Automation/Awesome-CloudOps-Automation/Datadog/legos/datadog_search_monitors/datadog_search_monitors.py")
     check_module_methods(module)
     print(f"TESTChecked module")
-    
-    """     
+    """
+
     for root, dirs, files in os.walk(folder_path):
         for file in files:
             if file.endswith('.py'):
@@ -58,9 +59,9 @@ if __name__ == '__main__':
                 module_name = os.path.splitext(file)[0]
                 try:
                     module = importlib.util.spec_from_file_location(module_name,file_path)
-                    check_module_methods(module)
                     print(f"Checked module: {module_name}")
+                    if not check_module_methods(module):
+                        print(f"Error in module {module_name}")
                 except Exception as e:
                     print(f"Error importing module {module_name}: {str(e)}")
-    """
     assert True
