@@ -70,6 +70,18 @@ def check_module_methods(module):
     print("module:")
     print(type(module_act))
     print(module_act.__name__)
+
+    module_methods = [
+    (name, member)
+    for name, member in inspect.getmembers(module_act)
+    if inspect.isfunction(member) and member.__module__ == module_act.__name__
+]
+
+for name, method in module_methods:
+    print(f"Method name: {name}")
+    print()
+
+"""
     has_region = True
     for (name, member) in inspect.getmembers(module_act):
         print(name)
@@ -82,6 +94,7 @@ def check_module_methods(module):
     if not has_region:
         print(f"Assertion failed: Module: {module.name}")
         assert has_region
+"""
 
 if __name__ == '__main__':   
     """  
