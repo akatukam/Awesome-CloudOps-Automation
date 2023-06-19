@@ -48,6 +48,6 @@ if __name__ == '__main__':
                 try:
                     module = importlib.util.spec_from_file_location(module_name,file_path)
                     if not check_module_methods(module):
-                        print(f"Error in module {module_name}")
+                        print(f"Error in module {file_path}")
                 except Exception as e:
                     print(f"Error importing module {module_name}: {str(e)}")
