@@ -72,7 +72,7 @@ def check_module_methods(module):
     print("module:")
     print(module_act.__name__)
 
-    module_source = inspect.getsource(math)
+    module_source = inspect.getsource(module_act)
     print("module_source:")
     print(module_source)
 
