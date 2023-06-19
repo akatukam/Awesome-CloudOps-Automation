@@ -43,7 +43,7 @@ def check_module_methods(module):
 if __name__ == '__main__':   
     for root, dirs, files in os.walk(folder_path):
         for file in files:
-            if file.endswith('.py') and os.path.abspath(file) != current_file::
+            if file.endswith('.py') and os.path.abspath(file) != current_file:
                 file_path = os.path.join(root, file)
                 module_name = os.path.splitext(file)[0]
                 try:
