@@ -2,10 +2,7 @@ import inspect
 import re
 import os
 import importlib
-import sys
 from subprocess import run
-import glob
-import types
 
 def git_top_dir() -> str:
     """git_top_dir returns the output of git rev-parse --show-toplevel 
