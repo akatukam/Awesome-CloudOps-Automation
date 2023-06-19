@@ -29,11 +29,14 @@ def check_method_signature(module, method_name):
         :type method_name: string
         :param method_name: Name of the method to check.
     """
+    print("hello")
     print("module:")
     print(type(module))
     module_name = module.name
     print(f"Module name: {module_name}")
     methods = inspect.getmembers(module, inspect.isfunction)
+    print("methods:")
+    print(type(methods))
     for name, methody in methods:
         print(f"Methody name: {name}")
     if methods is None:
