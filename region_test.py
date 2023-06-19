@@ -36,16 +36,8 @@ def check_method_signature(module, method_name):
     print(f"Module name: {module_name}")
     module_act = importlib.util.module_from_spec(module)
     print(type(module_act))
-    methods = inspect.getmembers(module, inspect.isfunction)
-    print("methods:")
-    print(type(methods))
-    if methods:
-        for name, method in methods:
-            print(f"Method name: {name}")
-    else:
-        print("No methods found in the module.")
-    
-"""        
+
+          
     method = getattr(module, method_name, None)
     print("method:")
     print(type(method))
