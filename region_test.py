@@ -33,11 +33,11 @@ def check_method_signature(module, method_name):
     print(type(module))
     module_name = module.name
     print(f"Module name: {module_name}")
-    
     methods = inspect.getmembers(module, inspect.isfunction)
-    
     for name, methody in methods:
         print(f"Methody name: {name}")
+    if methods is None:
+        print("Nonee")
 """        
     method = getattr(module, method_name, None)
     print("method:")
@@ -75,11 +75,11 @@ def check_module_methods(module):
         assert has_region
 
 if __name__ == '__main__':   
-    
+    """  
     entries = os.listdir('/home/runner/work/Awesome-CloudOps-Automation/Awesome-CloudOps-Automation/Datadog/legos/datadog_search_monitors')
     for entry in entries:
         print(entry)
-
+    """
     module = importlib.util.spec_from_file_location("datadog_search_monitors","/home/runner/work/Awesome-CloudOps-Automation/Awesome-CloudOps-Automation/Datadog/legos/datadog_search_monitors/datadog_search_monitors.py")
     check_module_methods(module)
     print(f"TESTChecked module")
