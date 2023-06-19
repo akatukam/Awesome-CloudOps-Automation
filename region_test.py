@@ -44,7 +44,6 @@ def check_method_signature(module, method_name):
     method_name = method.__name__
     print(f"Method name: {method_name}")
 """
-"""
     method = getattr(module, method_name, None)
     if method is not None:
         (source_lines, _) = inspect.getsourcelines(method)
