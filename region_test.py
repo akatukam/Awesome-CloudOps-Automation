@@ -34,6 +34,7 @@ def check_method_signature(module, method_name):
     print(type(module))
     module_name = module.name
     print(f"Module name: {module_name}")
+    print(module.__all__)
     methods = inspect.getmembers(module, inspect.isfunction)
     print("methods:")
     print(type(methods))
