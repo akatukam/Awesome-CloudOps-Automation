@@ -72,14 +72,14 @@ def check_module_methods(module):
     print(module_act.__name__)
 
     module_methods = [
-    (name, member)
-    for name, member in inspect.getmembers(module_act)
-    if inspect.isfunction(member) and member.__module__ == module_act.__name__
-]
+        (name, member)
+        for name, member in inspect.getmembers(math)
+        if inspect.isfunction(member) and member.__module__ == math.__name__
+    ]
 
-for name, method in module_methods:
-    print(f"Method name: {name}")
-    print()
+    for name, method in module_methods:
+        print(f"Method name: {name}")
+        print()
 
 """
     has_region = True
