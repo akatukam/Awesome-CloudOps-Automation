@@ -20,17 +20,24 @@ def git_top_dir() -> str:
 # Get the top-level directory of the Git repository
 folder_path = git_top_dir()
 
-def check_method_signature(module, method_name):
-    return True
+def check_method_signature(param, method_name):
+    if re.search(r"egion", param):
+        # checks if that riff is "region" exactly
+        pattern = r"(?<![^\s(])region(?=\s|:|\))"
+        return bool(re.findall(pattern, param+")"))
+    else:
+        return True
 
 def check_module_methods(module):
+    has_region = True
     module_act = importlib.util.module_from_spec(module)
     module_source = inspect.getsource(module_act)
     method_matches = re.findall(r"def (.*?)\)", module_source, flags=re.DOTALL)
     for method_match in method_matches:
         method_name = re.findall(r"(\w+)\s*\(", method_match)
-        print(method_match)
-        print(method_name)
+        if not check_method_signature_two(method_match, method_name[0]):
+            has_region = False
+    assert(has_region)
 
 if __name__ == '__main__':   
     """  
