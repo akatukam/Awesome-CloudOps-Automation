@@ -74,7 +74,7 @@ def check_module_methods(module):
     module_methods = [
         (name, member)
         for name, member in inspect.getmembers(module_act)
-        if inspect.isfunction(member) and member.__module__ == module_act.__name__
+        if inspect.ismethod(member) and member.__module__ == module_act.__name__
     ]
 
     for name, method in module_methods:
