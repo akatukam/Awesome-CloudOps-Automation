@@ -66,6 +66,8 @@ def check_module_methods(module):
         :type module: object
         :param module: The module being checked.
     """
+    print("module:")
+    print(type(module))
     has_region = True
     for (name, member) in inspect.getmembers(module):
         if inspect.isfunction(member) or inspect.ismethod(member):
