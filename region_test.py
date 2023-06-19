@@ -35,7 +35,8 @@ def check_module_methods(module):
     method_matches = re.findall(r"def (.*?)\)", module_source, flags=re.DOTALL)
     for method_match in method_matches:
         method_name = re.findall(r"(\w+)\s*\(", method_match)
-        if not check_method_signature_two(method_match, method_name[0]):
+        method_match_new = method_match.replace(method_name[0], "")
+        if not check_method_signature(method_match_new, method_name[0]):
             has_region = False
     return has_region
 
