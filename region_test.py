@@ -5,6 +5,7 @@ import importlib
 import sys
 from subprocess import run
 import glob
+import types
 
 def git_top_dir() -> str:
     """git_top_dir returns the output of git rev-parse --show-toplevel 
@@ -71,11 +72,8 @@ def check_module_methods(module):
     print(type(module_act))
     print(module_act.__name__)
 
-    module_methods = getmembers(module_act, isfunction)
-
-    for name, method in module_methods:
-        print(f"Method name: {name}")
-        print()
+    print([getattr(module_act, a) for a in dir(module_act)
+      if isinstance(getattr(module_act, a), types.FunctionType)])
 
 """
     has_region = True
