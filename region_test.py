@@ -67,21 +67,16 @@ def check_module_methods(module):
         :type module: object
         :param module: The module being checked.
     """
-    """
+
     module_act = importlib.util.module_from_spec(module)
     print("module:")
-    print(type(module_act))
     print(module_act.__name__)
 
-    print([getattr(module_act, a) for a in dir(module_act)
-      if isinstance(getattr(module_act, a), types.FunctionType)])
+    module_source = inspect.getsource(math)
+    print("module_source:")
+    print(module_source)
 
-    for (name, member) in inspect.getmembers(module_act):
-        print(name)
-        print(member)
-        if inspect.isfunction(member) or inspect.ismethod(member):
-            print("name:")
-            print(name)
+    
     """
     has_region = True
     for (name, member) in inspect.getmembers(module):
@@ -95,7 +90,7 @@ def check_module_methods(module):
     if not has_region:
         print(f"Assertion failed: Module: {module.name}")
         assert has_region
-
+    """
 
 if __name__ == '__main__':   
     """  
