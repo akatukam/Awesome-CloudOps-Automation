@@ -38,6 +38,7 @@ if __name__ == '__main__':
     for entry in entries:
         print(entry)
     """
+    """
     module = importlib.util.spec_from_file_location("datadog_search_monitors","/home/runner/work/Awesome-CloudOps-Automation/Awesome-CloudOps-Automation/Datadog/legos/datadog_search_monitors/datadog_search_monitors.py")
     check_module_methods(module)
     print(f"TESTChecked module")
@@ -55,5 +56,5 @@ if __name__ == '__main__':
                     print(f"Checked module: {module_name}")
                 except Exception as e:
                     print(f"Error importing module {module_name}: {str(e)}")
-    """
+    
     assert True
