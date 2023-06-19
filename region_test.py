@@ -71,6 +71,8 @@ def check_module_methods(module):
     has_region = True
     for (name, member) in inspect.getmembers(module):
         if inspect.isfunction(member) or inspect.ismethod(member):
+            print("name:")
+            print(name)
             if not check_method_signature(module, name):
                has_region = False
     if not has_region:
