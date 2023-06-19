@@ -71,7 +71,7 @@ def check_module_methods(module):
             if not check_method_signature(module, name):
                has_region = False
     if not has_region:
-        print(f"Assertion failed: Module: {module.__name__}")
+        print(f"Assertion failed: Module: {module.name}")
         assert has_region
 
 if __name__ == '__main__':   
