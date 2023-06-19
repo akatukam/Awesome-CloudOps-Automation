@@ -26,7 +26,7 @@ def check_method_signature(module, method_name):
 def check_module_methods(module):
     module_act = importlib.util.module_from_spec(module)
     module_source = inspect.getsource(module_act)
-    method_matches = re.findall(r"def(.*)?:", module_source)
+    method_matches = re.findall(r"def (.*?)\)", module_source, flags=re.DOTALL)
     for method_match in method_matches:
         method_name = re.findall(r"(\w+)\s*\(", method_match)
         print(method_match)
