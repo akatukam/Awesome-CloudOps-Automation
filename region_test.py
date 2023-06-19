@@ -71,6 +71,8 @@ def check_module_methods(module):
     print(type(module_act))
     has_region = True
     for (name, member) in inspect.getmembers(module_act):
+        print(name)
+        print(member)
         if inspect.isfunction(member) or inspect.ismethod(member):
             print("name:")
             print(name)
