@@ -69,6 +69,7 @@ def check_module_methods(module):
     module_act = importlib.util.module_from_spec(module)
     print("module:")
     print(type(module_act))
+    print(module_act.__name__)
     has_region = True
     for (name, member) in inspect.getmembers(module_act):
         print(name)
