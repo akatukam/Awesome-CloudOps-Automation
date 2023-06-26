@@ -28,7 +28,7 @@ def check_method_signature(param):
     """
     if re.search(r"egion", param):
         # checks if that riff is "region" exactly
-        pattern = r"(?<![^\s(,])region(?=\s|:|\))"
+        pattern = r"(?<![^\s(,])region(?=\s|:|\)|,)"
         return bool(re.findall(pattern, param+")"))
     else:
         return True
