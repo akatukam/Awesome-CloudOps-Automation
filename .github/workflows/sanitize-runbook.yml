@@ -63,4 +63,4 @@ jobs:
       - name: Pytype Python Checker
         uses: theahura/pytypes-action@main
         with:
-          args: --config pytype.toml
+          args: --generate-config pytype.toml
