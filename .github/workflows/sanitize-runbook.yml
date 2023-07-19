@@ -61,6 +61,6 @@ jobs:
         run: python -c "import sys; print(sys.version)"
           
       - name: Pytype Python Checker
-        uses: theahura/pytypes-action@v1.6
+        uses: theahura/pytypes-action@main
         with:
           args: --config pytype.toml
